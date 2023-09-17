@@ -1,12 +1,11 @@
-import logo from './assets/logo.jpg'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <h1>Welcome to HRnet</h1>
-            </header>
+            <Header />
+            <Footer />
         </div>
     )
 }

@@ -1,0 +1,17 @@
+.hrnet-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #f8f9fa;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .hrnet-footer {
+        padding: 10px 15px;
+        text-align: center;
+    }
+}
