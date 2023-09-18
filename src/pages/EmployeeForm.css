@@ -1,0 +1,63 @@
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2 {
+    color: #333;
+}
+
+a {
+    color: #106d1b;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #0b711d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #104012;
+}
+
+#create-employee {
+    display: grid;
+    gap: 1rem;
+}
+
+input[type='text'],
+input[type='number'],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+    #create-employee {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 800px) {
+    #create-employee {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
