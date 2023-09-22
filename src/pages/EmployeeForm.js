@@ -288,14 +288,14 @@ export default function EmployeeForm() {
                     onChange={handleChange}
                 />
                 <input
-                    type="text"
+                    type="date"
                     name="dateOfBirth"
                     placeholder="Date of Birth"
                     value={formData.dateOfBirth}
                     onChange={handleChange}
                 />
                 <input
-                    type="text"
+                    type="date"
                     name="startDate"
                     placeholder="Start Date"
                     value={formData.startDate}
