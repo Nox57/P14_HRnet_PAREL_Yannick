@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Select from 'react-select'
 import { US_states } from '../datas/US_states'
+import Modal from '../components/Modal/Modal'
 import './EmployeeForm.css'
 
 export default function EmployeeForm() {
@@ -29,11 +30,13 @@ export default function EmployeeForm() {
         setFormData((prevData) => ({ ...prevData, [name]: newValue }))
     }
 
+    const [isModalOpen, setModalOpen] = useState(false)
+
     const saveEmployee = () => {
         const employees = JSON.parse(localStorage.getItem('employees')) || []
         employees.push(formData)
         localStorage.setItem('employees', JSON.stringify(employees))
-        alert('Employee Created!')
+        setModalOpen(true)
     }
 
     return (
@@ -116,6 +119,11 @@ export default function EmployeeForm() {
                 />
             </form>
             <button onClick={saveEmployee}>Save</button>
+
+            <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+                <h2>Confirmation</h2>
+                <p>Employee successfully added !</p>
+            </Modal>
         </div>
     )
 }
