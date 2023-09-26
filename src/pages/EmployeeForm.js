@@ -29,8 +29,10 @@ export default function EmployeeForm() {
         { value: 'Legal', label: 'Legal' },
     ]
 
-    const handleChange = (name, option) => {
-        const newValue = option.value || option.target.value
+    const handleChange = (name) => (eventOrOption) => {
+        const newValue = eventOrOption.target
+            ? eventOrOption.target.value
+            : eventOrOption.value
         setFormData((prevData) => ({ ...prevData, [name]: newValue }))
     }
 
@@ -51,42 +53,42 @@ export default function EmployeeForm() {
                     name="firstName"
                     placeholder="First Name"
                     value={formData.firstName}
-                    onChange={handleChange}
+                    onChange={handleChange('firstName')}
                 />
                 <input
                     type="text"
                     name="lastName"
                     placeholder="Last Name"
                     value={formData.lastName}
-                    onChange={handleChange}
+                    onChange={handleChange('lastName')}
                 />
                 <input
                     type="date"
                     name="dateOfBirth"
                     placeholder="Date of Birth"
                     value={formData.dateOfBirth}
-                    onChange={handleChange}
+                    onChange={handleChange('dateOfBirth')}
                 />
                 <input
                     type="date"
                     name="startDate"
                     placeholder="Start Date"
                     value={formData.startDate}
-                    onChange={handleChange}
+                    onChange={handleChange('startDate')}
                 />
                 <input
                     type="text"
                     name="street"
                     placeholder="Street"
                     value={formData.street}
-                    onChange={handleChange}
+                    onChange={handleChange('street')}
                 />
                 <input
                     type="text"
                     name="city"
                     placeholder="City"
                     value={formData.city}
-                    onChange={handleChange}
+                    onChange={handleChange('city')}
                 />
                 <Select
                     name="state"
@@ -96,7 +98,7 @@ export default function EmployeeForm() {
                             (state) => state.abbreviation === formData.state
                         ).name,
                     }}
-                    onChange={(option) => handleChange('state', option)}
+                    onChange={handleChange('state')}
                     options={US_states.map((state) => ({
                         value: state.abbreviation,
                         label: state.name,
@@ -107,16 +109,14 @@ export default function EmployeeForm() {
                     name="zipCode"
                     placeholder="Zip Code"
                     value={formData.zipCode}
-                    onChange={handleChange}
+                    onChange={handleChange('zipCode')}
                 />
                 <Select
                     name="department"
                     value={departments.find(
                         (dept) => dept.value === formData.department
                     )}
-                    onChange={(option) =>
-                        handleChange('department', option.value)
-                    }
+                    onChange={handleChange('department')}
                     options={departments}
                 />
             </form>
