@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux'
 import {
     createColumnHelper,
     flexRender,
@@ -20,7 +21,7 @@ const columns = [
 ]
 
 export default function EmployeeTable() {
-    const employees = JSON.parse(localStorage.getItem('employees')) || []
+    const employees = useSelector((state) => state.employee.employees)
     const table = useReactTable({
         data: employees,
         columns,

@@ -1,10 +1,14 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addEmployee } from '../redux/employeeSlice'
 import Select from 'react-select'
 import { US_states } from '../datas/US_states'
 import Modal from '../components/Modal/Modal'
 import './EmployeeForm.css'
 
 export default function EmployeeForm() {
+    const dispatch = useDispatch()
+
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -33,9 +37,7 @@ export default function EmployeeForm() {
     const [isModalOpen, setModalOpen] = useState(false)
 
     const saveEmployee = () => {
-        const employees = JSON.parse(localStorage.getItem('employees')) || []
-        employees.push(formData)
-        localStorage.setItem('employees', JSON.stringify(employees))
+        dispatch(addEmployee(formData))
         setModalOpen(true)
     }
 
