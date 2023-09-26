@@ -29,6 +29,7 @@ export default function EmployeeTable() {
 
     return (
         <div>
+            <a href="/add-employee">Add an employee</a>
             <table>
                 <thead>
                     {table.getHeaderGroups().map((headerGroup) => (
