@@ -1,9 +1,11 @@
+import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import {
     createColumnHelper,
     flexRender,
     getCoreRowModel,
     getPaginationRowModel,
+    getSortedRowModel,
     useReactTable,
 } from '@tanstack/react-table'
 
@@ -23,11 +25,18 @@ const columns = [
 
 export default function EmployeeTable() {
     const employees = useSelector((state) => state.employee.employees)
+    const [sorting, setSorting] = useState([])
+
     const table = useReactTable({
         data: employees,
         columns,
+        state: {
+            sorting,
+        },
+        onSortingChange: setSorting,
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
+        getSortedRowModel: getSortedRowModel(),
     })
 
     return (
@@ -39,12 +48,28 @@ export default function EmployeeTable() {
                         <tr key={headerGroup.id}>
                             {headerGroup.headers.map((header) => (
                                 <th key={header.id}>
-                                    {header.isPlaceholder
-                                        ? null
-                                        : flexRender(
-                                              header.column.columnDef.header,
-                                              header.getContext()
-                                          )}
+                                    {header.isPlaceholder ? null : (
+                                        <div
+                                            {...{
+                                                className:
+                                                    header.column.getCanSort()
+                                                        ? 'cursor-pointer select-none'
+                                                        : '',
+                                                onClick:
+                                                    header.column.getToggleSortingHandler(),
+                                            }}
+                                        >
+                                            {flexRender(
+                                                header.column.columnDef.header,
+                                                header.getContext()
+                                            )}
+                                            {{
+                                                asc: ' 🔼',
+                                                desc: ' 🔽',
+                                            }[header.column.getIsSorted()] ??
+                                                null}
+                                        </div>
+                                    )}
                                 </th>
                             ))}
                         </tr>
