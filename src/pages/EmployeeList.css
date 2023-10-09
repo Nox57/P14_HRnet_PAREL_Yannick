@@ -1,0 +1,57 @@
+.table-container {
+    margin: 20px;
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: var(--border-style);
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.clickable-header {
+    cursor: pointer;
+    user-select: none;
+}
+
+.pagination-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: auto;
+}
+
+.pagination-controls button,
+.pagination-controls input,
+.pagination-controls select {
+    margin: var(--margin);
+    padding: var(--padding);
+    border-radius: var(--border-radius);
+    border: var(--border-style);
+}
+
+.pagination-controls input {
+    width: 50px;
+    text-align: center;
+}
+
+button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.select-container {
+    text-align: center;
+    width: 100%;
+}

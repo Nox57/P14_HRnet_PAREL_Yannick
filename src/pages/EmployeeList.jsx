@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import {
     createColumnHelper,
@@ -8,11 +8,16 @@ import {
     getSortedRowModel,
     useReactTable,
 } from '@tanstack/react-table'
+import './EmployeeList.css'
+import { rankItem } from '@tanstack/match-sorter-utils'
 
 const columnHelper = createColumnHelper()
 
 const columns = [
-    columnHelper.accessor('firstName', { header: 'First Name' }),
+    columnHelper.accessor('firstName', {
+        header: 'First Name',
+        filterFn: 'fuzzy',
+    }),
     columnHelper.accessor('lastName', { header: 'Last Name' }),
     columnHelper.accessor('dateOfBirth', { header: 'Date of Birth' }),
     columnHelper.accessor('startDate', { header: 'Start Date' }),
@@ -23,17 +28,38 @@ const columns = [
     columnHelper.accessor('zipCode', { header: 'Zip Code' }),
 ]
 
+const fuzzyFilter = (row, column, value, addMeta) => {
+    console.log('toto')
+    // Rank the item
+    const itemRank = rankItem(row.getValue(column), value)
+
+    // Store the ranking info
+    addMeta(itemRank)
+
+    // Return if the item should be filtered in/out
+    console.log(itemRank.passed)
+    return itemRank.passed
+}
+
 export default function EmployeeTable() {
     const employees = useSelector((state) => state.employee.employees)
     const [sorting, setSorting] = useState([])
+    const [globalFilter, setGlobalFilter] = useState('')
 
     const table = useReactTable({
         data: employees,
         columns,
+        filterFns: {
+            fuzzy: fuzzyFilter,
+        },
         state: {
             sorting,
+            globalFilter,
         },
+        enableGlobalFilter: true,
         onSortingChange: setSorting,
+        onGlobalFilterChange: setGlobalFilter,
+        globalFilterFn: fuzzyFilter,
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
         getSortedRowModel: getSortedRowModel(),
@@ -42,6 +68,10 @@ export default function EmployeeTable() {
     return (
         <div>
             <a href="/add-employee">Add an employee</a>
+            <DebouncedInput
+                value={globalFilter ?? ''}
+                onChange={(value) => setGlobalFilter(value)}
+            />
             <table>
                 <thead>
                     {table.getHeaderGroups().map((headerGroup) => (
@@ -90,7 +120,7 @@ export default function EmployeeTable() {
                     ))}
                 </tbody>
             </table>
-            <div className="flex items-center gap-2">
+            <div className="pagination-controls flex items-center gap-2">
                 <button
                     className="border rounded p-1"
                     onClick={() => table.setPageIndex(0)}
@@ -126,33 +156,66 @@ export default function EmployeeTable() {
                         {table.getPageCount()}
                     </strong>
                 </span>
-                <span className="flex items-center gap-1">
-                    | Go to page:
-                    <input
-                        type="number"
-                        defaultValue={table.getState().pagination.pageIndex + 1}
+                <div className="select-container">
+                    <span className="flex items-center gap-1">
+                        Go to page:
+                        <input
+                            type="number"
+                            defaultValue={
+                                table.getState().pagination.pageIndex + 1
+                            }
+                            onChange={(e) => {
+                                const page = e.target.value
+                                    ? Number(e.target.value) - 1
+                                    : 0
+                                table.setPageIndex(page)
+                            }}
+                            className="border p-1 rounded w-16"
+                        />
+                    </span>
+                    <select
+                        value={table.getState().pagination.pageSize}
                         onChange={(e) => {
-                            const page = e.target.value
-                                ? Number(e.target.value) - 1
-                                : 0
-                            table.setPageIndex(page)
+                            table.setPageSize(Number(e.target.value))
                         }}
-                        className="border p-1 rounded w-16"
-                    />
-                </span>
-                <select
-                    value={table.getState().pagination.pageSize}
-                    onChange={(e) => {
-                        table.setPageSize(Number(e.target.value))
-                    }}
-                >
-                    {[10, 20, 30, 40, 50].map((pageSize) => (
-                        <option key={pageSize} value={pageSize}>
-                            Show {pageSize}
-                        </option>
-                    ))}
-                </select>
+                    >
+                        {[10, 20, 30, 40, 50].map((pageSize) => (
+                            <option key={pageSize} value={pageSize}>
+                                Show {pageSize}
+                            </option>
+                        ))}
+                    </select>
+                </div>
             </div>
         </div>
+    )
+}
+
+function DebouncedInput({
+    value: initialValue,
+    onChange,
+    debounce = 500,
+    ...props
+}) {
+    const [value, setValue] = useState(initialValue)
+
+    useEffect(() => {
+        setValue(initialValue)
+    }, [initialValue])
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            onChange(value)
+        }, debounce)
+
+        return () => clearTimeout(timeout)
+    }, [value])
+
+    return (
+        <input
+            {...props}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+        />
     )
 }
