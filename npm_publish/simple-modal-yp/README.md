@@ -2,7 +2,7 @@
 
 A simple modal component for React 18, designed to be easy to integrate and use in your projects.
 
-![Modal Example](./img/example.png)
+![Modal Example](https://raw.githubusercontent.com/Nox57/P14_HRnet_PAREL_Yannick/main/npm_publish/simple-modal-yp/img/example.png)
 
 ## 🚀 Installation
 
@@ -76,7 +76,7 @@ The modal's style can be easily customized by overriding the following CSS class
 
 Un composant modal simple pour React 18, conçu pour être facile à intégrer et à utiliser dans vos projets.
 
-![Exemple de Modal](./img/example.png)
+![Exemple de Modal](https://raw.githubusercontent.com/Nox57/P14_HRnet_PAREL_Yannick/main/npm_publish/simple-modal-yp/img/example.png)
 
 ## 🚀 Installation
 
