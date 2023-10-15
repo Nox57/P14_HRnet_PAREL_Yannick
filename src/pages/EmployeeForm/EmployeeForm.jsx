@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addEmployee } from '../redux/employeeSlice'
+import { addEmployee } from '../../redux/employeeSlice'
 import Select from 'react-select'
-import { US_states } from '../datas/US_states'
-import Modal from '../components/Modal/Modal'
+import { US_states } from '../../datas/US_states'
+import Modal from '../../components/Modal/Modal'
 import './EmployeeForm.css'
 
 export default function EmployeeForm() {
