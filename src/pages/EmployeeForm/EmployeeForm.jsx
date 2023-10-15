@@ -45,7 +45,6 @@ export default function EmployeeForm() {
 
     return (
         <div className="container">
-            <a href="/">View Current Employees</a>
             <h2>Create Employee</h2>
             <form onSubmit={(e) => e.preventDefault()} id="create-employee">
                 <input

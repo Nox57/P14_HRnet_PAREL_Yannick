@@ -59,7 +59,6 @@ export default function EmployeeTable() {
 
     return (
         <div>
-            <a href="/add-employee">Add an employee</a>
             <MaterialReactTable
                 columns={columns}
                 data={employees}
