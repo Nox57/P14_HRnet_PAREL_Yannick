@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { addEmployee } from '../../redux/employeeSlice'
 import Select from 'react-select'
@@ -8,6 +8,10 @@ import './EmployeeForm.css'
 
 export default function EmployeeForm() {
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        document.title = 'HRnet - Add Employee'
+    }, [])
 
     const [formData, setFormData] = useState({
         firstName: '',

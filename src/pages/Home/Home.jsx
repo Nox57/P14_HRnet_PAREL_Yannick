@@ -1,7 +1,12 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Home.css'
 
 export default function Home() {
+    useEffect(() => {
+        document.title = 'HRnet - Home'
+    }, [])
+
     return (
         <main role="main" className="home-container">
             <header className="home-header">

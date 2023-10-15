@@ -1,9 +1,13 @@
-import { useMemo } from 'react'
+import { useMemo, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { MaterialReactTable } from 'material-react-table'
 import './EmployeeList.css'
 
 export default function EmployeeTable() {
+    useEffect(() => {
+        document.title = 'HRnet - Employee List'
+    }, [])
+
     const employees = useSelector((state) => state.employee.employees)
 
     const columns = useMemo(
