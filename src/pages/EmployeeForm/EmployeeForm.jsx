@@ -49,80 +49,146 @@ export default function EmployeeForm() {
 
     return (
         <div className="container">
-            <h2>Create Employee</h2>
+            <h2 className="title-container">Create Employee</h2>
             <form onSubmit={(e) => e.preventDefault()} id="create-employee">
-                <input
-                    type="text"
-                    name="firstName"
-                    placeholder="First Name"
-                    value={formData.firstName}
-                    onChange={handleChange('firstName')}
-                />
-                <input
-                    type="text"
-                    name="lastName"
-                    placeholder="Last Name"
-                    value={formData.lastName}
-                    onChange={handleChange('lastName')}
-                />
-                <input
-                    type="date"
-                    name="dateOfBirth"
-                    placeholder="Date of Birth"
-                    value={formData.dateOfBirth}
-                    onChange={handleChange('dateOfBirth')}
-                />
-                <input
-                    type="date"
-                    name="startDate"
-                    placeholder="Start Date"
-                    value={formData.startDate}
-                    onChange={handleChange('startDate')}
-                />
-                <input
-                    type="text"
-                    name="street"
-                    placeholder="Street"
-                    value={formData.street}
-                    onChange={handleChange('street')}
-                />
-                <input
-                    type="text"
-                    name="city"
-                    placeholder="City"
-                    value={formData.city}
-                    onChange={handleChange('city')}
-                />
-                <Select
-                    name="state"
-                    value={{
-                        value: formData.state,
-                        label: US_states.find(
-                            (state) => state.abbreviation === formData.state
-                        ).name,
-                    }}
-                    onChange={handleChange('state')}
-                    options={US_states.map((state) => ({
-                        value: state.abbreviation,
-                        label: state.name,
-                    }))}
-                />
-                <input
-                    type="number"
-                    name="zipCode"
-                    placeholder="Zip Code"
-                    value={formData.zipCode}
-                    onChange={handleChange('zipCode')}
-                />
-                <Select
-                    name="department"
-                    value={departments.find(
-                        (dept) => dept.value === formData.department
-                    )}
-                    onChange={handleChange('department')}
-                    options={departments}
-                />
+                <div className="row">
+                    <div className="col">
+                        <label htmlFor="firstName">First Name :</label>
+                        <input
+                            type="text"
+                            name="firstName"
+                            id="firstName"
+                            placeholder="First Name"
+                            value={formData.firstName}
+                            onChange={handleChange('firstName')}
+                        />
+                    </div>
+                    <div className="col">
+                        <label htmlFor="lastName">Last Name :</label>
+                        <input
+                            type="text"
+                            name="lastName"
+                            id="lastName"
+                            placeholder="Last Name"
+                            value={formData.lastName}
+                            onChange={handleChange('lastName')}
+                        />
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col">
+                        <label htmlFor="dateOfBirth">Date of Birth :</label>
+                        <input
+                            type="date"
+                            name="dateOfBirth"
+                            id="dateOfBirth"
+                            placeholder="Date of Birth"
+                            value={formData.dateOfBirth}
+                            onChange={handleChange('dateOfBirth')}
+                        />
+                    </div>
+
+                    <div className="col">
+                        <label htmlFor="startDate">Start Date :</label>
+                        <input
+                            type="date"
+                            name="startDate"
+                            id="startDate"
+                            placeholder="Start Date"
+                            value={formData.startDate}
+                            onChange={handleChange('startDate')}
+                        />
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col">
+                        <label htmlFor="street">Street :</label>
+                        <input
+                            type="text"
+                            name="street"
+                            id="street"
+                            placeholder="Street"
+                            value={formData.street}
+                            onChange={handleChange('street')}
+                        />
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col">
+                        <label htmlFor="city">City :</label>
+                        <input
+                            type="text"
+                            name="city"
+                            id="city"
+                            placeholder="City"
+                            value={formData.city}
+                            onChange={handleChange('city')}
+                        />
+                    </div>
+
+                    <div className="col">
+                        <label htmlFor="state">State :</label>
+                        <Select
+                            inputId="state"
+                            name="state"
+                            value={{
+                                value: formData.state,
+                                label: US_states.find(
+                                    (state) =>
+                                        state.abbreviation === formData.state
+                                ).name,
+                            }}
+                            onChange={handleChange('state')}
+                            options={US_states.map((state) => ({
+                                value: state.abbreviation,
+                                label: state.name,
+                            }))}
+                            styles={{
+                                control: (provided) => ({
+                                    ...provided,
+                                    marginTop: '10px',
+                                }),
+                            }}
+                        />
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col">
+                        <label htmlFor="zipCode">Zip Code :</label>
+                        <input
+                            type="number"
+                            name="zipCode"
+                            id="zipCode"
+                            placeholder="Zip Code"
+                            value={formData.zipCode}
+                            onChange={handleChange('zipCode')}
+                        />
+                    </div>
+                    <div className="col">
+                        <label htmlFor="department">Department :</label>
+                        <Select
+                            inputId="department"
+                            name="department"
+                            value={departments.find(
+                                (dept) => dept.value === formData.department
+                            )}
+                            onChange={handleChange('department')}
+                            options={departments}
+                            styles={{
+                                control: (provided) => ({
+                                    ...provided,
+                                    marginTop: '10px',
+                                }),
+                            }}
+                        />
+                    </div>
+                </div>
             </form>
+
             <button onClick={saveEmployee}>Save</button>
 
             <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
