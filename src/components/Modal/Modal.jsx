@@ -8,7 +8,7 @@ export default function Modal({ isOpen, onClose, children }) {
             <div className="modal-content">
                 {children}
                 <button className="modal-close" onClick={onClose}>
-                    Fermer
+                    Close
                 </button>
             </div>
         </div>

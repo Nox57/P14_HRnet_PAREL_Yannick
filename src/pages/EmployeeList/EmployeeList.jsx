@@ -62,7 +62,7 @@ export default function EmployeeTable() {
     )
 
     return (
-        <div>
+        <div className="table-container">
             <MaterialReactTable
                 columns={columns}
                 data={employees}
@@ -75,6 +75,18 @@ export default function EmployeeTable() {
                     rowsPerPageOptions: [10, 25, 50, 100],
                     showFirstButton: false,
                     showLastButton: false,
+                    sx: {
+                        color: '#6e8512',
+                    },
+                }}
+                muiTablePaperProps={{
+                    elevation: 0,
+                }}
+                muiTableHeadCellProps={{
+                    sx: {
+                        fontSize: '16px',
+                        color: '#6e8512',
+                    },
                 }}
             />
         </div>

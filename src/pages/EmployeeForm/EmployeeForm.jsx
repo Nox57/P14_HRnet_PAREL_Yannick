@@ -48,7 +48,7 @@ export default function EmployeeForm() {
     }
 
     return (
-        <div className="container">
+        <div className="form-container">
             <h2 className="title-container">Create Employee</h2>
             <form onSubmit={(e) => e.preventDefault()} id="create-employee">
                 <div className="row">
