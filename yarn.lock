@@ -1871,6 +1871,13 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@nox57/simple-modal@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@nox57/simple-modal/-/simple-modal-1.0.2.tgz#0db03f0d11d8e98eb3f1b96459f0d9d270479c82"
+  integrity sha512-TIzA/mGykC2E9k9Kp3GPqENwm6B8r1XFY40OJ+OsTZjR0fLI1w9sTtXxz3XobmOYYRUKXGZDo21k6vLjelRzfg==
+  dependencies:
+    prop-types "^15.8.1"
+
 "@pmmmwh/react-refresh-webpack-plugin@^0.5.3":
   version "0.5.11"
   resolved "https://registry.yarnpkg.com/@pmmmwh/react-refresh-webpack-plugin/-/react-refresh-webpack-plugin-0.5.11.tgz#7c2268cedaa0644d677e8c4f377bc8fb304f714a"

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { addEmployee } from '../../redux/employeeSlice'
 import Select from 'react-select'
 import { US_states } from '../../datas/US_states'
-import Modal from '../../components/Modal/Modal'
+import Modal from '@nox57/simple-modal'
 import './EmployeeForm.css'
 
 export default function EmployeeForm() {
@@ -191,7 +191,11 @@ export default function EmployeeForm() {
 
             <button onClick={saveEmployee}>Save</button>
 
-            <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+            <Modal
+                isOpen={isModalOpen}
+                onClose={() => setModalOpen(false)}
+                closeOnOverlayClick={true}
+            >
                 <h2>Confirmation</h2>
                 <p>Employee successfully added !</p>
             </Modal>
