@@ -1,6 +1,17 @@
-# Getting Started with Create React App
+# HRnet (English)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an evolution from a [previous project](https://github.com/OpenClassrooms-Student-Center/P12_Front-end) transitioning from jQuery to React and was initialized with [Create React App](https://github.com/facebook/create-react-app).
+
+Welcome to the HRnet project, an application designed for efficient employee record management.
+
+## Main Features
+
+-   **Custom Modal Library (@nox57/simple-modal)**: I created a simple and reusable modal library for handling modal dialogs within the application. You can find the GitHub repository [here](https://github.com/Nox57/simple-modal-yp) and the npm package [here](https://www.npmjs.com/package/@nox57/simple-modal).
+-   **Table with material-react-table**: Usage of `material-react-table` to elegantly display the employee list.
+-   **Selectors with react-select**: Implementation of `react-select` for a better user experience with dropdown menus.
+-   **Date Handling**: No external library for date picking, date type fields are natively handled by modern browsers.
+-   **State Management with Redux**: Utilizing Redux for predictable state management across the application.
+-   **Routing with react-router-dom**: Implementation of `react-router-dom` to manage routing within the application.
 
 ## Available Scripts
 
@@ -8,63 +19,62 @@ In the project directory, you can run:
 
 ### `yarn start`
 
-Runs the app in the development mode.\
+Runs the app in development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in interactive watch mode.\
+More information in the section on [running tests](https://facebook.github.io/create-react-app/docs/running-tests).
 
 ### `yarn build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The app is ready to be deployed!
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To learn more about React, check out the [React documentation](https://reactjs.org/).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# HRnet (French)
 
-### Code Splitting
+Ce projet est une évolution du [projet précédent](https://github.com/OpenClassrooms-Student-Center/P12_Front-end) passant de jQuery à React et a été initialisé avec [Create React App](https://github.com/facebook/create-react-app).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Bienvenue dans le projet HRnet, une application conçue pour la gestion efficace des fiches employés.
 
-### Analyzing the Bundle Size
+## Caractéristiques principales
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+-   **Librairie Modal Personnalisée (@nox57/simple-modal)** : J'ai créé une librairie modal simple et réutilisable pour gérer la fenêtre modal dans l'application. Vous pouvez trouver le dépôt GitHub [ici](https://github.com/Nox57/simple-modal-yp) et le package npm [ici](https://www.npmjs.com/package/@nox57/simple-modal).
 
-### Making a Progressive Web App
+-   **Tableau avec material-react-table** : Utilisation de `material-react-table` pour afficher la liste des employés de manière élégante.
+-   **Sélecteurs avec react-select** : Mise en œuvre de `react-select` pour une meilleure expérience utilisateur avec les menus déroulants.
+-   **Gestion des dates** : Pas de librairie externe pour la sélection des dates, les champs de type date sont gérés nativement par les navigateurs modernes.
+-   **State Management avec Redux** : Utilisation de Redux pour une gestion d'état prévisible sur l'application.
+-   **Routage avec react-router-dom** : Mise en place de `react-router-dom` pour gérer le routage dans l'application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Scripts disponibles
 
-### Advanced Configuration
+Dans le répertoire du projet, vous pouvez exécuter :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### `yarn start`
 
-### Deployment
+Lance l'application en mode développement.\
+Ouvrez [http://localhost:3000](http://localhost:3000) pour le visualiser dans votre navigateur.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### `yarn test`
 
-### `yarn build` fails to minify
+Lance le test runner en mode watch interactif.\
+Plus d'informations dans la section sur [l'exécution des tests](https://facebook.github.io/create-react-app/docs/running-tests).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### `yarn build`
+
+Construit l'application pour la production dans le dossier `build`.\
+Il regroupe correctement React en mode production et optimise le build pour les meilleures performances.
+
+L'application est prête à être déployée !
+
+## En savoir plus
+
+Pour en savoir plus sur React, consultez la [documentation React](https://reactjs.org/).
