@@ -76,7 +76,7 @@ export default function EmployeeTable() {
                     showFirstButton: false,
                     showLastButton: false,
                     sx: {
-                        color: '#6e8512',
+                        color: '#006767',
                     },
                 }}
                 muiTablePaperProps={{
@@ -85,7 +85,7 @@ export default function EmployeeTable() {
                 muiTableHeadCellProps={{
                     sx: {
                         fontSize: '16px',
-                        color: '#6e8512',
+                        color: '#006767',
                     },
                 }}
             />

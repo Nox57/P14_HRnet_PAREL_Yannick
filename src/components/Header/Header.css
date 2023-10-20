@@ -41,12 +41,12 @@
 
 .hrnet-nav a {
     text-decoration: none;
-    color: #6e8512;
+    color: #2f4858;
     transition: color 0.3s;
 }
 
 .hrnet-nav a:hover {
-    color: #2f4858;
+    color: #6e8512;
 }
 
 @media (max-width: 768px) {
