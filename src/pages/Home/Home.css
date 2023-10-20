@@ -58,9 +58,24 @@
 }
 
 @media (max-width: 768px) {
+    .home-container {
+        padding: 50px 20px 50px 20px;
+    }
+
+    .home-header {
+        text-align: center;
+    }
+
+    .home-navigation {
+        text-align: center;
+    }
+
     .home-navigation ul {
         flex-direction: column;
-        gap: 10px;
+    }
+
+    .home-navigation li:not(:last-child) {
+        margin-bottom: 20px;
     }
 
     .home-navigation a {

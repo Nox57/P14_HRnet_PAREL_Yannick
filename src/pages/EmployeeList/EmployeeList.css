@@ -3,3 +3,11 @@
     max-width: 100%;
     padding: 20px 50px 20px 50px;
 }
+
+@media (max-width: 768px) {
+    .table-container {
+        margin: 20px auto;
+        max-width: 100%;
+        padding: 20px;
+    }
+}
