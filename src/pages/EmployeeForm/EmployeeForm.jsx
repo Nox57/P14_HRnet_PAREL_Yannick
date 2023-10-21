@@ -3,7 +3,13 @@ import { useDispatch } from 'react-redux'
 import { addEmployee } from '../../redux/employeeSlice'
 import Select from 'react-select'
 import { US_states } from '../../datas/US_states'
+import { departments } from '../../datas/departments'
 import Modal from '@nox57/simple-modal'
+import {
+    isNameValid,
+    isStreetValid,
+    isCityValid,
+} from '../../utils/formValidation'
 import './EmployeeForm.css'
 
 export default function EmployeeForm() {
@@ -25,14 +31,6 @@ export default function EmployeeForm() {
         zipCode: '',
     })
 
-    const departments = [
-        { value: 'Sales', label: 'Sales' },
-        { value: 'Marketing', label: 'Marketing' },
-        { value: 'Engineering', label: 'Engineering' },
-        { value: 'Human Resources', label: 'Human Resources' },
-        { value: 'Legal', label: 'Legal' },
-    ]
-
     const handleChange = (name) => (eventOrOption) => {
         const newValue = eventOrOption.target
             ? eventOrOption.target.value
@@ -42,9 +40,37 @@ export default function EmployeeForm() {
 
     const [isModalOpen, setModalOpen] = useState(false)
 
+    const areAllFieldsFilled = () => {
+        return Object.values(formData).every(
+            (value) => value !== '' && value !== null
+        )
+    }
+
+    const [errorMessage, setErrorMessage] = useState('')
+
     const saveEmployee = () => {
-        dispatch(addEmployee(formData))
-        setModalOpen(true)
+        if (!areAllFieldsFilled()) {
+            setErrorMessage('Please complete all fields.')
+        } else if (
+            new Date(formData.dateOfBirth) >= new Date(formData.startDate)
+        ) {
+            setErrorMessage('The date of birth must be before the start date.')
+        } else if (
+            !isNameValid(formData.firstName) ||
+            !isNameValid(formData.lastName)
+        ) {
+            setErrorMessage(
+                'The first and last name must only contain letters, accents, spaces, hyphens, apostrophes.'
+            )
+        } else if (!isStreetValid(formData.street)) {
+            setErrorMessage('The street must contain at least one digit.')
+        } else if (!isCityValid(formData.city)) {
+            setErrorMessage('The city should not contain numbers.')
+        } else {
+            dispatch(addEmployee(formData))
+            setModalOpen(true)
+            setErrorMessage('')
+        }
     }
 
     return (
@@ -55,6 +81,7 @@ export default function EmployeeForm() {
                     <div className="col">
                         <label htmlFor="firstName">First Name :</label>
                         <input
+                            required
                             type="text"
                             name="firstName"
                             id="firstName"
@@ -66,6 +93,7 @@ export default function EmployeeForm() {
                     <div className="col">
                         <label htmlFor="lastName">Last Name :</label>
                         <input
+                            required
                             type="text"
                             name="lastName"
                             id="lastName"
@@ -80,6 +108,7 @@ export default function EmployeeForm() {
                     <div className="col">
                         <label htmlFor="dateOfBirth">Date of Birth :</label>
                         <input
+                            required
                             type="date"
                             name="dateOfBirth"
                             id="dateOfBirth"
@@ -92,6 +121,7 @@ export default function EmployeeForm() {
                     <div className="col">
                         <label htmlFor="startDate">Start Date :</label>
                         <input
+                            required
                             type="date"
                             name="startDate"
                             id="startDate"
@@ -106,6 +136,7 @@ export default function EmployeeForm() {
                     <div className="col">
                         <label htmlFor="street">Street :</label>
                         <input
+                            required
                             type="text"
                             name="street"
                             id="street"
@@ -120,6 +151,7 @@ export default function EmployeeForm() {
                     <div className="col">
                         <label htmlFor="city">City :</label>
                         <input
+                            required
                             type="text"
                             name="city"
                             id="city"
@@ -160,6 +192,7 @@ export default function EmployeeForm() {
                     <div className="col">
                         <label htmlFor="zipCode">Zip Code :</label>
                         <input
+                            required
                             type="number"
                             name="zipCode"
                             id="zipCode"
@@ -187,9 +220,15 @@ export default function EmployeeForm() {
                         />
                     </div>
                 </div>
+                <div className="error-container">
+                    {errorMessage && (
+                        <span className="error-message">{errorMessage}</span>
+                    )}
+                </div>
+                <button type="submit" onClick={saveEmployee}>
+                    Save
+                </button>
             </form>
-
-            <button onClick={saveEmployee}>Save</button>
 
             <Modal
                 isOpen={isModalOpen}
