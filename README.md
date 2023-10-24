@@ -13,6 +13,15 @@ Welcome to the HRnet project, an application designed for efficient employee rec
 -   **State Management with Redux**: Utilizing Redux for predictable state management across the application.
 -   **Routing with react-router-dom**: Implementation of `react-router-dom` to manage routing within the application.
 
+## 📊 Lighthouse Reports
+
+Lighthouse is a tool by Google for website auditing to improve performance, SEO, and more. Here are the Lighthouse reports for this project :
+
+-   [Form Page (pdf)](https://github.com/Nox57/P14_HRnet_PAREL_Yannick/blob/main/lighthouse_reports/hrnet/p14-hrnet-parel-yannick.vercel.app-20231021T021854-add-employee-desktop.pdf)
+-   [Employee List Page (pdf)](https://github.com/Nox57/P14_HRnet_PAREL_Yannick/blob/main/lighthouse_reports/hrnet/p14-hrnet-parel-yannick.vercel.app-20231021T022957-employee-list-desktop.pdf)
+
+All reports are available [here](https://github.com/Nox57/P14_HRnet_PAREL_Yannick/tree/main/lighthouse_reports).
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -53,6 +62,15 @@ Bienvenue dans le projet HRnet, une application conçue pour la gestion efficace
 -   **Gestion des dates** : Pas de librairie externe pour la sélection des dates, les champs de type date sont gérés nativement par les navigateurs modernes.
 -   **State Management avec Redux** : Utilisation de Redux pour une gestion d'état prévisible sur l'application.
 -   **Routage avec react-router-dom** : Mise en place de `react-router-dom` pour gérer le routage dans l'application.
+
+## 📊 Rapports Lighthouse
+
+Lighthouse est un outil de Google pour l'audit de sites web afin d'améliorer les performances, le SEO, et plus encore. Voici les rapports Lighthouse pour ce projet :
+
+-   [Page du formulaire (pdf)](https://github.com/Nox57/P14_HRnet_PAREL_Yannick/blob/main/lighthouse_reports/hrnet/p14-hrnet-parel-yannick.vercel.app-20231021T021854-add-employee-desktop.pdf)
+-   [Page de la liste des employés (pdf)](https://github.com/Nox57/P14_HRnet_PAREL_Yannick/blob/main/lighthouse_reports/hrnet/p14-hrnet-parel-yannick.vercel.app-20231021T022957-employee-list-desktop.pdf)
+
+Tous les rapports sont disponibles [ici](https://github.com/Nox57/P14_HRnet_PAREL_Yannick/tree/main/lighthouse_reports).
 
 ## Scripts disponibles
 
